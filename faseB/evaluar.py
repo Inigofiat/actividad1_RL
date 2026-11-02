@@ -1,3 +1,5 @@
+# Evaluar cada una 50 episodios y seleccionar la mejor por cada tamaño de discretización (total: 3).
+
 import os 
 import sys
 import glob

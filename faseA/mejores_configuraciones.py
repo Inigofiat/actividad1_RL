@@ -1,5 +1,5 @@
-# Seleccionar la mejor combinación de hiperparámetros para cada algoritmo y
-# presupuesto de discretización, obteniendo un total de nueve configuraciones
+# Seleccionar la mejor combinación de hiperparámetros para cada algoritmo 
+# y presupuesto de discretización, obteniendo un total de nueve configuraciones.
 
 import os
 import sys
@@ -18,7 +18,6 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     storage_file = f"sqlite:///optuna/optuna.db"
 
-#bd para unir con todos 
     estudios_existentes = []
     for s in optuna.get_all_study_summaries(storage=storage_file):
         estudios_existentes.append(s.study_name)
@@ -36,9 +35,6 @@ if __name__ == "__main__":
             estudios_existentes.append(study_name)
             print(f"Copiado {study_name} desde {archivo}")
 
-    #Parte 2 --> el mejor trial de cada estudio:
-    # coger el mejor trial de cada uno de los 9 estudios
-
     mejores_configuraciones = {}   #dicc vacío 
     filas_tabla = []    #lista vacía
 
@@ -52,10 +48,6 @@ if __name__ == "__main__":
             filas_tabla.append({"algoritmo": algo_name, "presupuesto": presupuesto, "n_bins": PRESUPUESTOS[presupuesto], "n_trials": len(study.trials), "mejor_recompensa": round(best_trial.value, 2), **best_trial.params})
 
             print(f"{study_name}: recompensa = {best_trial.value:.2f} con {best_trial.params}")
-
-
-# Parte 3 --> Guardar los resultados 
-#Guardar las 9 configuraciones (se usará en fase B) y la tabla para informe 
 
     os.makedirs("resultados", exist_ok=True)
 

@@ -1,3 +1,11 @@
+# Realizar entrenamientos largos utilizando las nueve configuraciones seleccionadas en la Fase A, 
+# ejecutando al menos tres entrenamientos independientes por configuración con diferentes semillas aleatorias 
+# (un mínimo de 27 entrenamientos en total). 
+# - Mantener el mismo presupuesto máximo de entrenamiento para todas las configuraciones, medido en pasos de interacción con el entorno.
+# - Registrar en TensorBoard la evolución del proceso de entrenamiento.
+
+# Guardar cada tabla Q resultante (acompañada de a qué algoritmo y tamaño de discretización pertenece).
+
 import os
 import sys
 import random

@@ -1,3 +1,5 @@
+# Realizar una inspección visual del comportamiento de estas 3 políticas finales.
+
 import os
 import sys
 import random

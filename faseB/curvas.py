@@ -1,3 +1,10 @@
+# Analizar y comparar los resultados finales considerando, al menos:
+# - Velocidad de aprendizaje: rapidez con la que los algoritmos mejoran su rendimiento.
+# - Estabilidad: variabilidad entre las diferentes semillas y oscilaciones durante el aprendizaje.
+# - Convergencia: si las curvas de aprendizaje muestran una tendencia a estabilizarse y aproximadamente cuánto entrenamiento necesitan para ello.
+# - Influencia de la discretización: cómo afecta el tamaño del espacio de estados/acciones al comportamiento de cada algoritmo.
+# - Rendimiento final: resultados de la evaluación de las 3 políticas finales, tanto en términos de recompensa como del comportamiento observado visualmente. 
+
 import os 
 import sys
 import glob

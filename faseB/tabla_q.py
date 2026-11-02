@@ -1,11 +1,12 @@
-"""Fase B, punto 1: guardar y cargar la tabla Q en un archivo."""
+# Diseñar un mecanismo básico para guardar/cargar la tabla Q como archivo.
+
 import os
 import sys
 import json
 import numpy as np
 
 ACTIVIDAD = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path[0:0] = [ACTIVIDAD, os.path.dirname(ACTIVIDAD)]  # para config.py y deustorl/
+sys.path[0:0] = [ACTIVIDAD, os.path.dirname(ACTIVIDAD)] 
 
 from deustorl.common import QTable
 
