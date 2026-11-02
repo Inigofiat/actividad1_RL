@@ -29,7 +29,7 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     os.makedirs("resultados", exist_ok=True)
 
-    rejilla = np.linspace(0, 2_000, 200)
+    rejilla = np.linspace(0, 2_000_000, 200)
 
     curvas = {}
     for presupuesto in PRESUPUESTOS:
@@ -39,11 +39,11 @@ if __name__ == "__main__":
                 pasos, recompensas = leer_curva(carpeta_semilla)
                 if len(pasos) > 0:
                     semillas.append(np.interp(rejilla, pasos, recompensas))
-                if len(semillas) > 0:
-                    curvas[(presupuesto, algo_name)] = (np.mean(semillas, axis=0), np.std(semillas, axis=0))
-                    print(f"{algo_name} {presupuesto}: {len(semillas)} semillas, recompensa final = {np.mean(semillas, axis=0) [-1]:.2f}")
+            if len(semillas) > 0:
+                curvas[(presupuesto, algo_name)] = (np.mean(semillas, axis=0), np.std(semillas, axis=0))
+                print(f"{algo_name} {presupuesto}: {len(semillas)} semillas, recompensa final = {np.mean(semillas, axis=0) [-1]:.2f}")
 
-    fig, paneles = plt.subplots(1, len(PRESUPUESTOS), figsize=(15, 4), rey=True)
+    fig, paneles = plt.subplots(1, len(PRESUPUESTOS), figsize=(15, 4), sharey=True)
     for panel, presupuesto in zip(paneles, PRESUPUESTOS):
         for algo_name in ALGORITMOS:
             if (presupuesto, algo_name) in curvas:
