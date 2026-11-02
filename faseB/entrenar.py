@@ -3,6 +3,7 @@ import sys
 import random
 import json
 import time
+import gc
 
 ACTIVIDAD = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path[0:0] = [ACTIVIDAD, os.path.dirname(ACTIVIDAD)]
@@ -14,6 +15,8 @@ from deustorl.qlearning import QLearning
 from config import crear_entorno, ALGORITMOS, PRESUPUESTOS
 
 from tabla_q import guardar_tabla_q
+
+from tensorboard.summary.writer.event_file_writer import EventFileWriter
 
 MIS_PRESUPUESTOS = [arg for arg in sys.argv[1:] if arg in PRESUPUESTOS] 
 MIS_SEMILLAS = [int(arg) for arg in sys.argv[1:] if arg.isdigit()]
@@ -54,6 +57,9 @@ if __name__ == "__main__":
                 algo.learn(epsilon_greedy_policy, n_steps=n_steps, discount_rate=params["discount_rate"], lr=params["learning_rate"], lrdecay=params["learning_rate_decay"], n_episodes_decay=params["lr_episodes_decay"])
                 elapsed_time = time.time() - start_time
                 print("----- {:0.4f} secs. -----".format(elapsed_time))
+                for objeto in gc.get_objects():
+                    if isinstance(objeto, EventFileWriter):
+                        objeto.close()
                 
                 os.chdir(os.path.join(ACTIVIDAD, "faseB"))
                 env.close()
