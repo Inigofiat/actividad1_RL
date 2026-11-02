@@ -58,7 +58,7 @@ if __name__ == "__main__":
                 elapsed_time = time.time() - start_time
                 print("----- {:0.4f} secs. -----".format(elapsed_time))
                 for objeto in gc.get_objects():
-                    if isinstance(objeto, EventFileWriter):
+                    if type(objeto) is EventFileWriter:
                         objeto.close()
                 
                 os.chdir(os.path.join(ACTIVIDAD, "faseB"))
