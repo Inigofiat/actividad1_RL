@@ -1,0 +1,140 @@
+
+tablas_q/esarsa_alto_semilla_1.npz
+New observation space: Discrete(262144)
+Average reward per episode: -292.0000
+Average steps per episode: 292.9800
+
+tablas_q/esarsa_alto_semilla_2.npz
+New observation space: Discrete(262144)
+Average reward per episode: -439.4000
+Average steps per episode: 440.0200
+
+tablas_q/esarsa_alto_semilla_3.npz
+New observation space: Discrete(262144)
+Average reward per episode: -315.7200
+Average steps per episode: 316.5600
+
+tablas_q/esarsa_bajo_semilla_1.npz
+New observation space: Discrete(4096)
+Average reward per episode: -428.3800
+Average steps per episode: 428.8000
+
+tablas_q/esarsa_bajo_semilla_2.npz
+New observation space: Discrete(4096)
+Average reward per episode: -218.4200
+Average steps per episode: 219.4200
+
+tablas_q/esarsa_bajo_semilla_3.npz
+New observation space: Discrete(4096)
+Average reward per episode: -265.7800
+Average steps per episode: 266.7000
+
+tablas_q/esarsa_medio_semilla_1.npz
+New observation space: Discrete(46656)
+Average reward per episode: -217.6800
+Average steps per episode: 218.6800
+
+tablas_q/esarsa_medio_semilla_2.npz
+New observation space: Discrete(46656)
+Average reward per episode: -406.5600
+Average steps per episode: 407.4400
+
+tablas_q/esarsa_medio_semilla_3.npz
+New observation space: Discrete(46656)
+Average reward per episode: -242.3000
+Average steps per episode: 243.3000
+
+tablas_q/qlearning_alto_semilla_1.npz
+New observation space: Discrete(262144)
+Average reward per episode: -237.0600
+Average steps per episode: 238.0600
+
+tablas_q/qlearning_alto_semilla_2.npz
+New observation space: Discrete(262144)
+Average reward per episode: -272.8200
+Average steps per episode: 273.8000
+
+tablas_q/qlearning_alto_semilla_3.npz
+New observation space: Discrete(262144)
+Average reward per episode: -267.2000
+Average steps per episode: 268.1400
+
+tablas_q/qlearning_bajo_semilla_1.npz
+New observation space: Discrete(4096)
+Average reward per episode: -394.0400
+Average steps per episode: 394.7000
+
+tablas_q/qlearning_bajo_semilla_2.npz
+New observation space: Discrete(4096)
+Average reward per episode: -277.4600
+Average steps per episode: 278.4200
+
+tablas_q/qlearning_bajo_semilla_3.npz
+New observation space: Discrete(4096)
+Average reward per episode: -255.0200
+Average steps per episode: 255.9800
+
+tablas_q/qlearning_medio_semilla_1.npz
+New observation space: Discrete(46656)
+Average reward per episode: -196.6400
+Average steps per episode: 197.6400
+
+tablas_q/qlearning_medio_semilla_2.npz
+New observation space: Discrete(46656)
+Average reward per episode: -188.6000
+Average steps per episode: 189.6000
+
+tablas_q/qlearning_medio_semilla_3.npz
+New observation space: Discrete(46656)
+Average reward per episode: -474.0600
+Average steps per episode: 474.2800
+
+tablas_q/sarsa_alto_semilla_1.npz
+New observation space: Discrete(262144)
+Average reward per episode: -449.6000
+Average steps per episode: 450.0000
+
+tablas_q/sarsa_alto_semilla_2.npz
+New observation space: Discrete(262144)
+Average reward per episode: -305.6200
+Average steps per episode: 306.5200
+
+tablas_q/sarsa_alto_semilla_3.npz
+New observation space: Discrete(262144)
+Average reward per episode: -442.2400
+Average steps per episode: 442.7200
+
+tablas_q/sarsa_bajo_semilla_1.npz
+New observation space: Discrete(4096)
+Average reward per episode: -497.3800
+Average steps per episode: 497.4400
+
+tablas_q/sarsa_bajo_semilla_2.npz
+New observation space: Discrete(4096)
+Average reward per episode: -313.0000
+Average steps per episode: 313.8400
+
+tablas_q/sarsa_bajo_semilla_3.npz
+New observation space: Discrete(4096)
+Average reward per episode: -289.5200
+Average steps per episode: 290.4600
+
+tablas_q/sarsa_medio_semilla_1.npz
+New observation space: Discrete(46656)
+Average reward per episode: -413.0000
+Average steps per episode: 413.7000
+
+tablas_q/sarsa_medio_semilla_2.npz
+New observation space: Discrete(46656)
+Average reward per episode: -390.2600
+Average steps per episode: 391.0200
+
+tablas_q/sarsa_medio_semilla_3.npz
+New observation space: Discrete(46656)
+Average reward per episode: -488.8600
+Average steps per episode: 489.1000
+
+Politicas finales (la mejor de cada presupuesto):
+  bajo   -> tablas_q/esarsa_bajo_semilla_2.npz   recompensa media = -218.42
+  medio  -> tablas_q/qlearning_medio_semilla_2.npz   recompensa media = -188.60
+  alto   -> tablas_q/qlearning_alto_semilla_1.npz   recompensa media = -237.06
