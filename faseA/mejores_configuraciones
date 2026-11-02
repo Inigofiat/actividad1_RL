@@ -19,53 +19,53 @@ if __name__ == "__main__":
     storage_file = f"sqlite:///optuna/optuna.db"
 
 #bd para unir con todos 
-estudios_existentes = []
-for s in optuna.get_all_study_summaries(storage=storage_file):
-    estudios_existentes.append(s.study_name)
+    estudios_existentes = []
+    for s in optuna.get_all_study_summaries(storage=storage_file):
+        estudios_existentes.append(s.study_name)
 
-for archivo in glob.glob("optuna/compañeros/*.db"):
-    storage_companero = "sqlite///" + archivo.replace("\\", "/")
+    for archivo in glob.glob("optuna/compañeros/*.db"):
+        storage_companero = "sqlite///" + archivo.replace("\\", "/")
 
-for resumen in optuna.get_all_study_sumaries(storage=storage_companero):
-    study_name = resumen.study_name
+    for resumen in optuna.get_all_study_sumaries(storage=storage_companero):
+        study_name = resumen.study_name
 
-    if study_name in estudios_existentes:
-        continue
+        if study_name in estudios_existentes:
+            continue
 
-    optuna.copy_study(from_study_name=study_name, from_storage=storage_companero, to_storage=storage_file)
-    estudios_existentes.append(study_name)
-    print(f"Copiado {study_name} desde {archivo}")
+        optuna.copy_study(from_study_name=study_name, from_storage=storage_companero, to_storage=storage_file)
+        estudios_existentes.append(study_name)
+        print(f"Copiado {study_name} desde {archivo}")
 
-#Parte 2 --> el mejor trial de cada estudio:
-# coger el mejor trial de cada uno de los 9 estudios
+    #Parte 2 --> el mejor trial de cada estudio:
+    # coger el mejor trial de cada uno de los 9 estudios
 
-mejores_configuraciones = {}   #dicc vacío 
-filas_tabla = []    #lista vacía
+    mejores_configuraciones = {}   #dicc vacío 
+    filas_tabla = []    #lista vacía
 
-for p in PRESUPUESTOS:
-    for a in ALGORITMOS:
-        study_name = f"{a}_{p}"
-        study = optuna.load_study(study_name=study_name, storage=storage_file)
-        best_trial = study.best_trial
+    for p in PRESUPUESTOS:
+        for a in ALGORITMOS:
+            study_name = f"{a}_{p}"
+            study = optuna.load_study(study_name=study_name, storage=storage_file)
+            best_trial = study.best_trial
 
-        mejores_configuraciones[study_name] = best_trial.params
-        filas_tabla.append({"algoritmo": a, "presupuesto": p, "n_bins": PRESUPUESTOS[p], "n_trials": len(study.trials), "mejor_recompensa": round(best_trial.value, 2), **best_trial.params})
+            mejores_configuraciones[study_name] = best_trial.params
+            filas_tabla.append({"algoritmo": a, "presupuesto": p, "n_bins": PRESUPUESTOS[p], "n_trials": len(study.trials), "mejor_recompensa": round(best_trial.value, 2), **best_trial.params})
 
-        print(f"{study_name}: recompensa = {best_trial.value:.2f} con {best_trial.params}")
+            print(f"{study_name}: recompensa = {best_trial.value:.2f} con {best_trial.params}")
 
 
 # Parte 3 --> Guardar los resultados 
 #Guardar las 9 configuraciones (se usará en fase B) y la tabla para informe os.makedirs("resultados", exist_ok=True)
 
-best_params = json.dumps(mejores_configuraciones, sort_keys=True, indent=4) #json.dumps convierte el diccionario en texto json, sort_keys ordena las claves y indent=4 da formato legible
-json_file = open("resultados/mejores_configuraciones.json", "w")
-json_file.write(best_params)
-json_file.close()
+    best_params = json.dumps(mejores_configuraciones, sort_keys=True, indent=4) #json.dumps convierte el diccionario en texto json, sort_keys ordena las claves y indent=4 da formato legible
+    json_file = open("resultados/mejores_configuraciones.json", "w")
+    json_file.write(best_params)
+    json_file.close()
 
-csv_file = open("resultados/mejores_configuraciones.csv", "w", newline="")
-writer = csv.DictWriter(csv_file, fieldnames=filas_tabla[0].keys())
-writer.writeheader()
-writer.writerows(filas_tabla)
-csv_file.close()
+    csv_file = open("resultados/mejores_configuraciones.csv", "w", newline="")
+    writer = csv.DictWriter(csv_file, fieldnames=filas_tabla[0].keys())
+    writer.writeheader()
+    writer.writerows(filas_tabla)
+    csv_file.close()
 
-print("Guardado en faseA/resultados/mejores_configuraciones.json y .csv")
+    print("Guardado en faseA/resultados/mejores_configuraciones.json y .csv")
