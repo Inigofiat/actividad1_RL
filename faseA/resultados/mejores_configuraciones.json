@@ -1,0 +1,65 @@
+{
+    "esarsa_alto": {
+        "discount_rate": 0.9,
+        "epsilon": 0.25,
+        "learning_rate": 0.08271941712083736,
+        "learning_rate_decay": 1.0,
+        "lr_episodes_decay": 10000
+    },
+    "esarsa_bajo": {
+        "discount_rate": 0.8500000000000001,
+        "epsilon": 0.4,
+        "learning_rate": 0.0036595080871390457,
+        "learning_rate_decay": 0.93,
+        "lr_episodes_decay": 1000
+    },
+    "esarsa_medio": {
+        "discount_rate": 0.9,
+        "epsilon": 0.2,
+        "learning_rate": 0.06783746580161697,
+        "learning_rate_decay": 0.9500000000000001,
+        "lr_episodes_decay": 10000
+    },
+    "qlearning_alto": {
+        "discount_rate": 0.9,
+        "epsilon": 0.1,
+        "learning_rate": 0.058752167127525366,
+        "learning_rate_decay": 0.98,
+        "lr_episodes_decay": 10000
+    },
+    "qlearning_bajo": {
+        "discount_rate": 0.8500000000000001,
+        "epsilon": 0.4,
+        "learning_rate": 0.0036595080871390457,
+        "learning_rate_decay": 0.93,
+        "lr_episodes_decay": 1000
+    },
+    "qlearning_medio": {
+        "discount_rate": 0.9,
+        "epsilon": 0.05,
+        "learning_rate": 0.03216389355890638,
+        "learning_rate_decay": 0.97,
+        "lr_episodes_decay": 10000
+    },
+    "sarsa_alto": {
+        "discount_rate": 0.8500000000000001,
+        "epsilon": 0.15000000000000002,
+        "learning_rate": 0.006821755226670491,
+        "learning_rate_decay": 0.9500000000000001,
+        "lr_episodes_decay": 10000
+    },
+    "sarsa_bajo": {
+        "discount_rate": 0.8500000000000001,
+        "epsilon": 0.4,
+        "learning_rate": 0.0036595080871390457,
+        "learning_rate_decay": 0.93,
+        "lr_episodes_decay": 1000
+    },
+    "sarsa_medio": {
+        "discount_rate": 1.0,
+        "epsilon": 0.35000000000000003,
+        "learning_rate": 0.06558799461686163,
+        "learning_rate_decay": 0.93,
+        "lr_episodes_decay": 1000
+    }
+}
