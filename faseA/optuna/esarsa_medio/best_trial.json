@@ -1,0 +1,7 @@
+{
+    "discount_rate": 0.9,
+    "epsilon": 0.2,
+    "learning_rate": 0.06783746580161697,
+    "learning_rate_decay": 0.9500000000000001,
+    "lr_episodes_decay": 10000
+}
