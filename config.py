@@ -1,3 +1,5 @@
+# Definir tres presupuestos de discretización (bajo, medio y alto), que produzcan 
+# espacios de estados/acciones de tamaños claramente diferentes, usando nuestros DiscretizationWrappers.
 import gymnasium as gym
 from deustorl.helpers import DiscretizedObservationWrapper
 
@@ -8,6 +10,8 @@ PRESUPUESTOS= {
     "medio": 6,
     "alto": 8
 }
+
+ALGORITMOS = ["sarsa", "esarsa", "qlearning"]
 
 def crear_entorno(presupuesto, render_mode=None):
     if render_mode is not None:
