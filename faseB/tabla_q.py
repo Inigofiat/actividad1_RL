@@ -11,7 +11,6 @@ from deustorl.common import QTable
 
 
 def guardar_tabla_q(ruta, q_table, metadatos):
-    """Guarda la tabla Q y sus metadatos en un archivo .npz."""
     carpeta = os.path.dirname(ruta)
     if carpeta:
         os.makedirs(carpeta, exist_ok=True)
@@ -19,7 +18,6 @@ def guardar_tabla_q(ruta, q_table, metadatos):
 
 
 def cargar_tabla_q(ruta):
-    """Carga un archivo guardado con guardar_tabla_q. Devuelve (q_table, metadatos)."""
     with np.load(ruta) as datos:
         tabla = datos["tabla"]
         metadatos = json.loads(str(datos["metadatos"]))
@@ -29,13 +27,11 @@ def cargar_tabla_q(ruta):
 
 
 if __name__ == "__main__":
-    # Prueba: entrenar una tabla pequeña, guardarla, cargarla y comprobar que es idéntica
     import random
     from deustorl.common import EpsilonGreedyPolicy
     from deustorl.qlearning import QLearning
     from config import crear_entorno
 
-    # Trabajar dentro de faseB/ para que tablas_q/ y logs/ se creen aquí
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     env = crear_entorno("bajo")

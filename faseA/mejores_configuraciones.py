@@ -42,14 +42,14 @@ if __name__ == "__main__":
     mejores_configuraciones = {}   #dicc vacío 
     filas_tabla = []    #lista vacía
 
-    for p in PRESUPUESTOS:
-        for a in ALGORITMOS:
-            study_name = f"{a}_{p}"
+    for presupuesto in PRESUPUESTOS:
+        for algo_name in ALGORITMOS:
+            study_name = f"{algo_name}_{presupuesto}"
             study = optuna.load_study(study_name=study_name, storage=storage_file)
             best_trial = study.best_trial
 
             mejores_configuraciones[study_name] = best_trial.params
-            filas_tabla.append({"algoritmo": a, "presupuesto": p, "n_bins": PRESUPUESTOS[p], "n_trials": len(study.trials), "mejor_recompensa": round(best_trial.value, 2), **best_trial.params})
+            filas_tabla.append({"algoritmo": algo_name, "presupuesto": presupuesto, "n_bins": PRESUPUESTOS[presupuesto], "n_trials": len(study.trials), "mejor_recompensa": round(best_trial.value, 2), **best_trial.params})
 
             print(f"{study_name}: recompensa = {best_trial.value:.2f} con {best_trial.params}")
 

@@ -58,7 +58,7 @@ if __name__ == "__main__":
     paneles[0].legend()
     fig.suptitle("Curvas de aprendizaje por presupuesto (media ± desviación de las semillas)")
     fig.tight_layout()
-    fig.savefig("resultados/curvas.png", dpi=150)
+    fig.savefig("resultados/curvas_aprendizaje.png", dpi=150)
 
     print("\nGráfica guardada en faseB/resultados/curvas_aprendizaje.png")
 

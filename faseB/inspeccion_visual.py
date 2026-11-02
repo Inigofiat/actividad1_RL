@@ -2,15 +2,15 @@ import os
 import sys
 import random
 
-ACTIVIDAD = os.path.dirname(os.path.dirname(os.path.abspath(_file_)))
+ACTIVIDAD = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path[0:0] = [ACTIVIDAD, os.path.dirname(ACTIVIDAD)]
 
 from deustorl.common import *
 from config import crear_entorno, PRESUPUESTOS
 from tabla_q import cargar_tabla_q
 
-if _name_ == "_main_":
-    os.chdir(os.path.dirname(os.path.abspath(_file_)))
+if __name__ == "__main__":
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     for presupuesto in PRESUPUESTOS:
         q_table, metadatos = cargar_tabla_q(f"politicas_finales/mejor_{presupuesto}.npz")
