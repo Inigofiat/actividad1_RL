@@ -26,7 +26,7 @@ if __name__ == "__main__":
     for archivo in glob.glob("optuna/optuna_*.db"):
         storage_companero = "sqlite:///" + archivo.replace("\\", "/")
 
-        for resumen in optuna.get_all_study_sumaries(storage=storage_companero):
+        for resumen in optuna.get_all_study_summaries(storage=storage_companero):
             study_name = resumen.study_name
 
             if study_name in estudios_existentes:
